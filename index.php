@@ -17,8 +17,8 @@
 </head>
 <body>
 	<div id="boundry">
-		<h2 id="subtitle">Upcoming Activites</h2>
 		<?php include('nav.php'); ?>
+		<h2 id="subtitle">Upcoming Activites:</h2>
 		<div id="upcoming-activities">
 			<?php while ($row = $statement->fetch()): ?>
 				<table>

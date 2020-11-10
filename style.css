@@ -82,3 +82,8 @@ td {
 	margin: 0px 2px 0px 2px;
 	word-wrap:break-word
 }
+
+.col-sm {
+	border: 2px solid darkgreen;
+	margin: 1px;
+}
