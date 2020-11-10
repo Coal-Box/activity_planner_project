@@ -1,0 +1,63 @@
+html, body, form, fieldset, legend, ol, li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: black;
+
+}
+
+a{
+	font-style: none;
+	text-decoration: none;
+}
+
+ul, ol {
+	list-style: none;
+	display: inline;
+}
+
+#boundry {
+	width: 800px;
+	border: 1px solid black;
+	border-radius: 15px;
+	color: #bf590c;
+	background-color: #042957;
+	margin: auto;
+
+}
+
+#nav_nav {
+	margin: auto;
+	text-align: center;
+}
+
+#nav_nav ul{
+	display: inline-flex;
+	background: #303ba7;
+	border-radius: 2px 2px 2px 2px;
+}
+
+#nav_nav ul li{
+	list-style: none;
+	padding:5px 10px 5px 10px;
+	margin-right: 10px;
+	margin-left: 0px;
+}
+
+
+#nav_nav ul li a{
+	color: #bf590c;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 5px;
+	padding: 5px 5px 5px 5px;
+}
+
+#nav_nav ul li a:hover{
+	color: black;
+	border-radius: 10px 10px 0px 0px;
+	background-color: #86add2;
+	margin-bottom: 20px;
+}
