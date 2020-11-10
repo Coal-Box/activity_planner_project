@@ -5,9 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Scheduled Activities</title>
+	<title>Scheduled Activites</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<?php include('nav.php'); ?>
+	<div id="boundry">
+		<?php include('nav.php'); ?>
+	</div>
 </body>
 </html>

@@ -22,15 +22,18 @@ ul, ol {
 	width: 800px;
 	border: 1px solid black;
 	border-radius: 15px;
-	color: #bf590c;
 	background-color: #042957;
 	margin: auto;
-
+	color: #bf590c;
 }
 
 #nav_nav {
 	margin: auto;
 	text-align: center;
+}
+
+#nav_nav h1{
+	margin: auto;
 }
 
 #nav_nav ul{
@@ -60,4 +63,22 @@ ul, ol {
 	border-radius: 10px 10px 0px 0px;
 	background-color: #86add2;
 	margin-bottom: 20px;
+}
+
+table {
+	font-size:14px;
+	border:3px solid lightgrey;
+	width:500px;
+	margin:auto;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	color: lightgrey;
+	table-layout: fixed;
+}
+
+td {
+	border: 1px solid grey;
+	padding: 0px;
+	margin: 0px 2px 0px 2px;
+	word-wrap:break-word
 }
