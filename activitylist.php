@@ -43,6 +43,7 @@
 				<?php endif ?>
 			</div>
 		</div>
+		<p><a href="newactivity.php">Add New</a></p>
 	</div>
 </body>
 </html>

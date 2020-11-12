@@ -3,7 +3,7 @@
 	require 'connect.php';
 	
 	$query = "SELECT * FROM ActivityList INNER JOIN ScheduledActivity ON ActivityList.ActivityListID=ScheduledActivity.ActivityListID WHERE ActivityDate > CURRENT_TIMESTAMP
- ORDER BY ScheduledActivityID LIMIT 5";
+ ORDER BY ActivityDate LIMIT 5";
     $statement = $db->prepare($query);
 
     $statement->execute();
