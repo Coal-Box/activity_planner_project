@@ -3,7 +3,7 @@
 	require 'connect.php';
 	
 	$query = "SELECT * FROM ActivityList INNER JOIN ScheduledActivity ON ActivityList.ActivityListID=ScheduledActivity.ActivityListID WHERE ActivityDate > CURRENT_TIMESTAMP
- ORDER BY ActivityDate LIMIT 5";
+ 	ORDER BY ActivityDate LIMIT 5";
     $statement = $db->prepare($query);
 
     $statement->execute();
@@ -30,6 +30,7 @@
 						<td colspan="2"><?= $row['ActivityDate'] ?></td>
 						<td colspan="2"><span><h3>Avalable Spots:</h3></span></td>
 						<td><?= $row['AvailableSpots'] ?></td>
+						<td colspan="2"><a href="event.php?ID=<?= $row['ScheduledActivityID'] ?>">Full Information</a></td>
 					</tr>
 					<tr>
 						<td colspan="2"><h3>Notes:</h4></td>
