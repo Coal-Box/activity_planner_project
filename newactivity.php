@@ -1,6 +1,6 @@
 <?php
 	require 'connect.php';
-
+	require 'authenticate.php';
 	if ($_POST ) {
 		$ActivityName = filter_input(INPUT_POST, 'ActivityName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $Participants = filter_input(INPUT_POST, 'Participants', FILTER_VALIDATE_INT);

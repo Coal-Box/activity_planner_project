@@ -1,23 +1,39 @@
 <?php
 
-	//require 'connect.php';
+	require 'connect.php';
 
-	define('ADMIN_LOGIN','admin');
+	$query = "SELECT * FROM User WHERE Rank > 2";//have this be from a get so page is universal?
+    $statement = $db->prepare($query);
 
-	define('ADMIN_PASSWORD','Useradmin9');
+    $statement->execute();
+
+    $usernames = "";
+    $passwords = "";
+
+    while ($row = $statement->fetch()) {
+    	$usernames .= $row['UserName'];
+    	$usernames .= ',';
+
+    	$passwords .= $row['Password'];
+    	$passwords .= ',';
+    }
+    $usernames = rtrim($usernames, ',');
+    $passwords = rtrim($passwords, ',');
+
+    $userArry = explode(',', $usernames);
+    $passArray = explode(',', $passwords);
+
+	define('USER_LOGIN',$userArry);
+	define('USER_PASSWORD',$passArray);
 
 
-	if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])
+	if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) || !in_array($_SERVER['PHP_AUTH_USER'], USER_LOGIN) || !in_array($_SERVER['PHP_AUTH_PW'], USER_PASSWORD)) {
 
-		|| ($_SERVER['PHP_AUTH_USER'] != ADMIN_LOGIN)
+		header('HTTP/1.1 401 Unauthorized');
 
-		|| ($_SERVER['PHP_AUTH_PW'] != ADMIN_PASSWORD)) {
+		header('WWW-Authenticate: Basic realm="Event Planner"');
 
-	header('HTTP/1.1 401 Unauthorized');
-
-	header('WWW-Authenticate: Basic realm="Our Blog"');
-
-	exit("Access Denied: Username and password required.");
+		exit("Access Denied: Username and password required.");
 
 	}
 

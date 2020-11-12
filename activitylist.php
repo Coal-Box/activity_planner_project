@@ -1,7 +1,7 @@
 <?php
 
 	require 'connect.php';
-	
+	require 'authenticate.php';//use get when set up to have variable permissions?
 	$query = "SELECT * FROM `activitylist` WHERE Active = 'y'";
     $statement = $db->prepare($query);
 

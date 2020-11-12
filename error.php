@@ -1,6 +1,4 @@
 <?php
-	require 'connect.php';
-
 	$error = $_GET['error'];
 ?>
 <!DOCTYPE html>

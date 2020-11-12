@@ -1,5 +1,6 @@
 <?php
 	require 'connect.php';
+	require 'authenticate.php';
 
 	if ($_POST ) {
 		$ActivityListID = filter_input(INPUT_POST, 'ActivityListID', FILTER_VALIDATE_INT);
@@ -52,9 +53,6 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
-		<?php
-echo "Today is " . date("Y-m-d H:i:s") . "<br>";
-?>
 		<form method="post" action="newevent.php" id="newevent">
         	<label for="ActivityListID">Activity Name:</label>
         	<select id="ActivityListID" name="ActivityListID">
