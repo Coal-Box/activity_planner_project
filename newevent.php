@@ -1,6 +1,10 @@
 <?php
 	require 'connect.php';
-	require 'authenticate.php';
+
+	if ($_SESSION['access'] < 2) {
+  		header("Location: noaccess.php");
+        exit;
+	}
 
 	if ($_POST ) {
 		$ActivityListID = filter_input(INPUT_POST, 'ActivityListID', FILTER_VALIDATE_INT);

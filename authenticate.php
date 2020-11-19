@@ -1,7 +1,5 @@
 <?php
 
-	require 'connect.php';
-
 	$query = "SELECT * FROM User WHERE Rank > 1";//have this be from a get so page is universal?
     $statement = $db->prepare($query);
 

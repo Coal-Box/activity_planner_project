@@ -9,4 +9,10 @@
          print "Error: " . $e->getMessage();
          die();
      }
+
+     session_start();
+
+     if (!isset($_SESSION['access'])) {
+     	$_SESSION['access'] = 1;
+     }
  ?>

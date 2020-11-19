@@ -1,8 +1,7 @@
 <?php
 
 	require 'connect.php';
-	require 'authenticate.php';//use get when set up to have variable permissions?
-	$query = "SELECT * FROM `activitylist` WHERE Active = 'y'";
+	$query = "SELECT * FROM ActivityList` WHERE Active = 'y'";
     $statement = $db->prepare($query);
 
     $statement->execute();
@@ -31,6 +30,7 @@
 						<h4><?= $row['ActivityName'] ?></h4>
 						<h5><?= $row['Participants'] ?> Player Activity</h5>
 						<h5><?= $row['ActivityInfo'] ?></h5>
+						<p><a href="editactivity.php?id=<?= $row['ActivityListID'] ?>">Edit</a></p>
 					</div>
 					<?php $i++ ?>
 				<?php endwhile ?>
