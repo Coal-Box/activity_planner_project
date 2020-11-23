@@ -1,7 +1,7 @@
 <?php
 	require 'connect.php';
 
-	if ($_SESSION['access'] < 2) {
+	if ($_SESSION['access'] <= 2) {
   		header("Location: noaccess.php");
         exit;
 	}

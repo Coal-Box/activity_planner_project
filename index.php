@@ -23,7 +23,7 @@
 			<?php while ($row = $statement->fetch()): ?>
 				<table>
 					<tr>
-						<td colspan="6"><h2><?= $row['ActivityName'] ?></h2></td>
+						<td colspan="8"><h2><?= $row['ActivityName'] ?></h2></td>
 					</tr>
 					<tr>
 						<td ><span><h3>Date:</h3></span></td>
@@ -33,13 +33,12 @@
 						<td colspan="2"><a href="event.php?ID=<?= $row['ScheduledActivityID'] ?>">Full Information</a></td>
 					</tr>
 					<tr>
-						<td colspan="2"><h3>Notes:</h4></td>
-						<td colspan="4" class="notes"><p><?= $row['Notes'] ?></p></td>
+						<td colspan="3"><h3>Notes:</h4></td>
+						<td colspan="5" class="notes"><p><?= $row['Notes'] ?></p></td>
 					</tr>
 				</table>
 			<?php endwhile ?>
 		</div>
 	</div>
 </body>
-
 </html>

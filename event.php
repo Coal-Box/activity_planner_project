@@ -33,6 +33,9 @@
 		<h3>There are <?= $row['AvailableSpots'] ?> spots left</h3>
 		<p>Notes regarding event: <?= $row['Notes'] ?></p>
 		<h3><a href="#">Join</a></h3>
+		<?php if($_SESSION['access'] >= 3): ?>
+			<h3><a href="editevent.php?id=<?= $row['ScheduledActivityID'] ?>">Edit</a></h3>
+		<?php endif ?>
 	</div>
 </body>
 </html>

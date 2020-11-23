@@ -30,7 +30,9 @@
 						<h4><?= $row['ActivityName'] ?></h4>
 						<h5><?= $row['Participants'] ?> Player Activity</h5>
 						<h5><?= $row['ActivityInfo'] ?></h5>
-						<p><a href="editactivity.php?id=<?= $row['ActivityListID'] ?>">Edit</a></p>
+						<?php if($_SESSION['access'] >= 3): ?>
+							<p><a href="editactivity.php?id=<?= $row['ActivityListID'] ?>">Edit</a></p>
+						<?php endif ?>
 					</div>
 					<?php $i++ ?>
 				<?php endwhile ?>
@@ -43,7 +45,9 @@
 				<?php endif ?>
 			</div>
 		</div>
-		<p><a href="newactivity.php">Add New</a></p>
+		<?php if($_SESSION['access'] >= 3): ?>
+			<p><a href="newactivity.php">Add New</a></p>
+		<?php endif ?>
 	</div>
 </body>
 </html>
