@@ -1,6 +1,6 @@
 <?php
 	
-	$activityquery = "SELECT * FROM ActivityList";
+	$activityquery = "SELECT * FROM ActivityList WHERE Active = 'y'";
     $activitystatement = $db->prepare($activityquery);
 
     $activitystatement->execute();

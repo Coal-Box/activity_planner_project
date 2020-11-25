@@ -1,7 +1,7 @@
 <?php
 
 	require 'connect.php';
-	$query = "SELECT * FROM ActivityList` WHERE Active = 'y'";
+	$query = "SELECT * FROM ActivityList WHERE Active = 'y'";
     $statement = $db->prepare($query);
 
     $statement->execute();
