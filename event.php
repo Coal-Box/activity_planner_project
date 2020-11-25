@@ -2,8 +2,8 @@
 	require 'connect.php';
 
 	if ($_GET) {
-		$ScheduledActivityID = filter_input(INPUT_GET, 'ID', FILTER_VALIDATE_INT);
-		if (!filter_input(INPUT_GET, 'ID', FILTER_VALIDATE_INT)) {
+		$ScheduledActivityID = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+		if (!filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT)) {
 			header("Location: scheduledactivities.php");
 		}
 		$query = "SELECT * FROM ActivityList INNER JOIN ScheduledActivity ON ActivityList.ActivityListID=ScheduledActivity.ActivityListID WHERE ScheduledActivityID = :ScheduledActivityID LIMIT 1";

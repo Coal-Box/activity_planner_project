@@ -4,6 +4,6 @@
 	<title>No Access</title>
 </head>
 <body>
-	<h2>Sorry, you must be logged in to access that page. Click <a href="login.php">here</a> to log in</h2>
+	<h2>Sorry, you may not have permission to veiw that page or you are not logged in. Click <a href="index.php">here</a> to return to the home page.</h2>
 </body>
 </html>

@@ -1,8 +1,7 @@
-
 <?php
 	require 'connect.php';
 
-	if ($_SESSION['access'] < 3) {
+	if ($_SESSION['access'] <= 3) {
   		header("Location: noaccess.php");
         exit;
 	}
@@ -16,12 +15,12 @@
 			header("Location: index.php");
 		}
 
-        $query = "UPDATE ActivityList SET ActivityName = :ActivityName, ActivityInfo = :ActivityInfo, Active = :Active WHERE id = :id";
+        $query = "UPDATE ActivityList SET ActivityName = :ActivityName, ActivityInfo = :ActivityInfo, Active = :Active WHERE ActivityListID = :ActivityListID";
         $statement = $db->prepare($query);
         $statement->bindValue(':ActivityName', $ActivityName);
         $statement->bindValue(':ActivityInfo', $ActivityInfo);
         $statement->bindValue(':Active', $Active);
-        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->bindValue(':ActivityListID', $id, PDO::PARAM_INT);
         $statement->execute();
 
         header("Location: editactivity.php?id={$id}");
@@ -74,7 +73,7 @@
         		<option value="y">Yes</option>
         		<option value="n">No</option>
         	</select>
-        	<input type="hidden" name="id" value="<?= $row['id'] ?>" />
+        	<input type="hidden" name="id" value="<?= $row['ActivityListID'] ?>" />
         	<input type="submit" name="update" value="update" id="update"/>
         	<input type="submit" name="delete" value="delete" id="delete" onclick="return confirm('Are you sure you wish to delete this activity? With content vaulting activities can return in later seasons so consider just changing Active to no. ')" />
 		</form>
