@@ -19,13 +19,13 @@
     	$comment = filter_input(INPUT_POST, 'AddComment', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     	if (strlen($comment) > 1) {
     		$addquery = "INSERT INTO Comments (Author, Comment, ComPage) VALUES (:Author, :Comment, :ComPage)";
-    		$addstatment = $db->prepare($addquery);
+    		$addstatement = $db->prepare($addquery);
 
-    		$addstatment->bindValue(':Author', $_POST['Author']);
-    		$addstatment->bindValue(':Comment', $comment);
-    		$addstatment->bindValue(':ComPage', $_POST['ComPage']);
+    		$addstatement->bindValue(':Author', $_POST['Author']);
+    		$addstatement->bindValue(':Comment', $comment);
+    		$addstatement->bindValue(':ComPage', $_POST['ComPage']);
 
-    		if ($addstatment->execute()) {
+    		if ($addstatement->execute()) {
     			header("Location: index.php");
 				exit;
     		}
@@ -35,10 +35,10 @@
 
     if (isset($_POST['hide'])) {
     	$hidequery = "UPDATE Comments SET Hidden='y' WHERE CommentID = :CommentID";
-    	$hidestatment = $db->prepare($hidequery);
+    	$hidestatement = $db->prepare($hidequery);
 
-    	$hidestatment->bindValue(':CommentID', $_POST['hide']);
-    	if ($hidestatment->execute()) {
+    	$hidestatement->bindValue(':CommentID', $_POST['hide']);
+    	if ($hidestatement->execute()) {
     		header("Location: index.php");
 			exit;
     	}

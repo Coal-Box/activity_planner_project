@@ -7,7 +7,7 @@
 			header("Location: index.php");
 		}
 
-		$query = "SELECT * FROM Categories INNER JOIN ActivityList ON Categories.CategoryID=ActivityList.Category WHERE ActivityListID = :id";
+		$query = "SELECT * FROM Categories INNER JOIN ActivityList ON Categories.CategoryID=ActivityList.Category WHERE ActivityListID = :id LIMIT 1";
     	$statement = $db->prepare($query);
     	$statement->bindValue(':id', $id, PDO::PARAM_INT);
     	$statement->execute();

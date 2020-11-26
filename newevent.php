@@ -57,6 +57,7 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
+        <?php include('activity_nav.php'); ?>
 		<form method="post" action="newevent.php" id="newevent">
         	<label for="ActivityListID">Activity Name:</label>
         	<select id="ActivityListID" name="ActivityListID">

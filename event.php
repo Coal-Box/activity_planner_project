@@ -26,6 +26,7 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
+		<?php include('activity_nav.php'); ?>
 		<h2><?= $row['ActivityName'] ?></h2>
 <!-- 	When scheduleduser is set up add list of people here -->
 		<h3>The participants are:</h3>

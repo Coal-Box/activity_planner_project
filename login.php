@@ -33,6 +33,7 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
+        <?php include('activity_nav.php'); ?>
 		<form method="post" action="login.php" id="login">
         	<label for="username">Username:</label>
         	<input id="username" name="username" type="text">

@@ -1,5 +1,9 @@
 <?php
-
+	require 'connect.php';
+	if (!isset($_SESSION['user'])) {
+  		header("Location: login.php");
+        exit;
+	}
 
 ?>
 <!DOCTYPE html>
@@ -11,6 +15,7 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
+		<?php include('activity_nav.php'); ?>
 	</div>
 </body>
 </html>

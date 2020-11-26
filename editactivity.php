@@ -63,6 +63,7 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
+        <?php include('activity_nav.php'); ?>
 		<form method="post">
 			<label for="ActivityName">Activity Name</label>
         	<input id="ActivityName" name="ActivityName" value="<?= $row['ActivityName'] ?>">

@@ -12,7 +12,7 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="newevent.php">New Event</a></li>
         <li><a href="scheduledactivites.php">Scheduled Activities</a></li>
-        <li><a href="activitylist.php">Categories</a></li>
+        <li><a href="categories.php">Categories</a></li>
         <li><a href="profile.php">Profile</a></li>
     </ul>
 </nav>

@@ -1,12 +1,30 @@
 <?php
-
 	require 'connect.php';
-	$query = "SELECT * FROM ActivityList WHERE Active = 'y'";
-    $statement = $db->prepare($query);
 
-    $statement->execute();
+	if (isset($_GET['id'])){
+		$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+		if (!filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)) {
+			header("Location: index.php");
+			exit;
+		}
 
-    $i=0;
+		$query = "SELECT * FROM ActivityList WHERE Active = 'y' AND Category = :id";
+    	$statement = $db->prepare($query);
+    	$statement->bindValue(':id', $id);
+
+    	$statement->execute();
+
+    	$i=0;
+	} else {
+		header("Location: index.php");
+    	exit;
+	}
+
+	// $query = "SELECT * FROM Categories INNER JOIN ActivityList ON Categories.CategoryID=ActivityList.Category WHERE ActivityListID = :id";
+ //    $statement = $db->prepare($query);
+ //    $statement->bindValue(':id', $id, PDO::PARAM_INT);
+ //    $statement->execute();
+	
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +37,7 @@
 <body>
 	<div id="boundry">
 		<?php include('nav.php'); ?>
+		<?php include('activity_nav.php'); ?>
 		<h2 id="subtitle">All Available Activities</h2>
 		<div class="container">
 			<div class="row">
