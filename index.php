@@ -15,9 +15,19 @@
 
     $comstatement->execute();
 
+    $captchaHash = ['1' => 'MY5N5',
+    				'2' => '263S2V'];
+
+    $_SESSION['captchaRand'] = rand(1,2);
+
     if (isset($_POST['AddComment'])) {
     	$comment = filter_input(INPUT_POST, 'AddComment', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    	if (strlen($comment) > 1) {
+    	$captcha = filter_input(INPUT_POST, 'CAPTCHA', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    	$captchaID = filter_input(INPUT_POST, 'CAPTCHA_ID', FILTER_SANITIZE_NUMBER_INT);
+    	if ($captchaHash[$captchaID] !==  $captcha){
+    		$wrong = 'isWrong';
+    	}
+    	if (strlen($comment) > 1 && !isset($wrong)) {
     		$addquery = "INSERT INTO Comments (Author, Comment, ComPage) VALUES (:Author, :Comment, :ComPage)";
     		$addstatement = $db->prepare($addquery);
 
@@ -43,6 +53,9 @@
 			exit;
     	}
     }
+
+    
+
 
 ?>
 <!DOCTYPE html>
@@ -101,9 +114,13 @@
 			<?php if($_SESSION['access'] >= 2): ?>
 				<form method="post">
 					<label for="AddComment">Add A Comment:</label>
-        			<textarea id="AddComment" name="AddComment">Type Here...</textarea>
+        			<textarea id="AddComment" name="AddComment" placeholder="Type Here..."><?php if(isset($wrong)): ?><?= $comment ?><?php endif ?></textarea>
         			<input type="hidden" name="Author" value="<?= $_SESSION['user'] ?>"/>
         			<input type="hidden" name="ComPage" value="index"/>
+        			<img src="CAPTCHA/<?= $_SESSION['captchaRand'] ?>.PNG" alt="CAPTCHA">
+        			<label for="CAPTCHA">Please type CAPTCHA with no spaces here:</label>
+        			<input type="text" name="CAPTCHA">
+        			<input type="hidden" name="CAPTCHA_ID" value="<?= $_SESSION['captchaRand'] ?>"/>
         			<input type="submit">
 				</form>
 			<?php endif ?>

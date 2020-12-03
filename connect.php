@@ -15,4 +15,8 @@
      if (!isset($_SESSION['access'])) {
      	$_SESSION['access'] = 1;
      }
+
+     if (!isset($_SESSION['verify'])) {
+        $_SESSION['verify'] = 'no';
+     }
  ?>
