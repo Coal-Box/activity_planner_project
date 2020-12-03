@@ -6,6 +6,10 @@
 		<a href="Logout.php">Log-Out</a>
 		<h5>Logged in as <?= $_SESSION['user'] ?></h5>
 	<?php endif ?>
+    <form method="post" action="search.php" id="newsearch">
+        <input type="text" name="searchbar">
+        <input type="submit" name="Search">
+    </form>
 </p>
 <nav id="nav_nav">
     <ul id="nav_ul">
