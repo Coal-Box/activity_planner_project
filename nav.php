@@ -1,7 +1,9 @@
 <?php
-    $query = "SELECT * FROM categories"
-    $statement = $db->prepare($query);
-    $statement->execute();
+    
+
+    $navquery = "SELECT * FROM categories";
+    $navstatement = $db->prepare($navquery);
+    $navstatement->execute();
 
 ?>
 
@@ -15,10 +17,10 @@
 	<?php endif ?>
     <form method="post" action="search.php" id="newsearch">
         <input type="text" name="search" id="search">
-        <label for="ActivityName">Activity Name:</label>
-        <select id="catagory">
-            <option value="0">All</option>
-            <?php while ($row = $catstatement->fetch() ): ?>
+        <label for="category">Filter category:</label>
+        <select id="category" name="category">
+            <option value="-1">All</option>
+            <?php while ($row = $navstatement->fetch() ): ?>
                 <option value="<?= $row['CategoryID'] ?>"><?= $row['CategoryName'] ?></option>
             <?php endwhile ?>
         </select>

@@ -1,5 +1,5 @@
 <?php
-
+	
 	require 'connect.php';
 	
 	$query = "SELECT * FROM ActivityList INNER JOIN ScheduledActivity ON ActivityList.ActivityListID=ScheduledActivity.ActivityListID WHERE ActivityDate > CURRENT_TIMESTAMP
