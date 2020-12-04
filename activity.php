@@ -33,6 +33,9 @@
 		<h4>Information: <?= $row['ActivityInfo'] ?></h4>
 		<h4>Participants: <?= $row['Participants'] ?></h4>
 		<h4>Category: <?= $row['CategoryName'] ?></h4>
+		<?php if($row['Image']): ?>
+			<img src="uploads/<?= $row['Image'] ?>">
+		<?php endif ?>
 		<?php if($_SESSION['access'] >= 3): ?>
 			<p><a href="editactivity.php?id=<?= $row['ActivityListID'] ?>">Edit</a></p>
 		<?php endif ?>

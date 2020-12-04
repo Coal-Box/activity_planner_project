@@ -69,6 +69,10 @@
         	<input id="ActivityName" name="ActivityName" value="<?= $row['ActivityName'] ?>">
         	<label for="ActivityInfo">Activity Info</label>
         	<textarea id="ActivityInfo" name="ActivityInfo"><?= $row['ActivityInfo'] ?></textarea>
+            <?php if($row['Image']): ?>
+                <label for="ImageDelete">Delete Image?</label>
+                <input id="ImageDelete" type="checkbox" name="ImageDelete" value="deleteImage">
+            <?php endif ?>
         	<label for="Active">Active?</label>
         	<select id="Active" name="Active">
         		<option value="y">Yes</option>

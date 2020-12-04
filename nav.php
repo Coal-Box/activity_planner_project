@@ -20,8 +20,8 @@
         <label for="category">Filter category:</label>
         <select id="category" name="category">
             <option value="-1">All</option>
-            <?php while ($row = $navstatement->fetch() ): ?>
-                <option value="<?= $row['CategoryID'] ?>"><?= $row['CategoryName'] ?></option>
+            <?php while ($navrow = $navstatement->fetch() ): ?>
+                <option value="<?= $navrow['CategoryID'] ?>"><?= $navrow['CategoryName'] ?></option>
             <?php endwhile ?>
         </select>
         <input type="submit" name="searchsubmit">
