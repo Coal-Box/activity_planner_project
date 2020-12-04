@@ -46,7 +46,7 @@
 						<div class="w-100"></div>
 					<?php endif ?>
 					<div class="col-sm">
-						<h4><?= $row['ActivityName'] ?></h4>
+						<h4><a href="activity.php?id=<?= $row['ActivityListID'] ?>"><?= $row['ActivityName'] ?></a></h4>
 						<h5><?= $row['Participants'] ?> Player Activity</h5>
 						<h5><?= $row['ActivityInfo'] ?></h5>
 						<?php if($_SESSION['access'] >= 3): ?>
