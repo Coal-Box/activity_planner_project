@@ -7,8 +7,8 @@
 		<h5>Logged in as <?= $_SESSION['user'] ?></h5>
 	<?php endif ?>
     <form method="post" action="search.php" id="newsearch">
-        <input type="text" name="searchbar">
-        <input type="submit" name="Search">
+        <input type="text" name="search" id="search">
+        <input type="submit" name="searchsubmit">
     </form>
 </p>
 <nav id="nav_nav">
