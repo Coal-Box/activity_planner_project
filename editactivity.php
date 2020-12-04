@@ -158,17 +158,19 @@
 
     } else if ($_POST && isset($_POST['delete']) && isset($_POST['id'])){
     	$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
-    	if (!filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)) {
-			header("Location: index.php");
-		}
+  //   	if (!filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT)) {
+		// 	header("Location: index.php");
+		// }
 
-    	$query = "DELETE FROM ActivityList WHERE id = :id";
+    	$query = "DELETE FROM ActivityList WHERE ActivityListID = :ActivityListID";
     	$statement = $db->prepare($query);
-        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->bindValue(':ActivityListID', $id, PDO::PARAM_INT);
 
-        $statement->execute();
+        if($statement->execute()){
+            header("Location: index.php");
+        }
 
-        header("Location: index.php");
+        
 
 	} else if (isset($_GET['id'])){
 		$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
